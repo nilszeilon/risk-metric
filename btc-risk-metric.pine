@@ -35,12 +35,12 @@ LowLogDev =     TimeIndex > 2 ? log(Weight) + LowIntercept + LowSlopeCum : na
 LowDev =        pow(2.718281828459, LowLogDev) 
 // code from quantadelic ends
 
-Logarithmic = input(title="Logarithmic growth multiplier", type=input.bool, defval=true)
+choice = input(title="Multiplier:", options=["None", "Growth curve (btc)", "SMA (other)"], defval="Growth curve (btc)")
 
 weeks = input(20, title = 'Length')
 MA = sma(close, weeks)
 
-bubble = Logarithmic ? normalize(((close)/MA)*(log(LowDev+math.e)),0,1) : normalize(close/MA,0,1)
+bubble = (choice == "Growth curve (btc)") ? normalize(((close)/MA)*(log(LowDev+math.e)),0,1) : (choice == "SMA (other)") ? normalize((close/MA)*log(MA+math.e),0,1) : normalize(close/MA,0,1)
 
 red = int(normalize(bubble, 0,255))
 blue = int(normalize(-bubble, 0, 255))
