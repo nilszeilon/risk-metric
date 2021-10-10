@@ -5,7 +5,7 @@
 The risk-model takes an extension from a moving average as a fraction, close/MA and multiplies it by some growing factor to adjust for the growing market cap of the asset. This makes alot of sense to do before normalizing, since the fraction will have a harder time to reach the same level in an asset that has a market cap of 1T than the same asset with a market cap of 1B. 
 
 ##### Examples
-![Risk metric with logarithmic growth](./log_growth_example)
+![Risk metric with logarithmic growth](https://github.com/nilszeilon/risk-metric/blob/main/log_growth_example.png)
 
 ##### Thanks 
 
