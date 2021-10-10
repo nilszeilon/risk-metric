@@ -15,5 +15,5 @@ The risk-model takes an extension from a moving average as a fraction, close/MA 
 
 ##### Usage and future work
 * You may use this code in any way you like. 
-* If you have any ideas to make the model perform even better feel free to branch this repository and contact me. 
+* If you have any ideas to make the model perform even better feel free to fork this repository and contact me. 
 
