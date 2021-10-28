@@ -47,11 +47,16 @@ ethLowDev       =   pow(2.718281828459, ethLowLogDev)
 choice = input(title="Multiplier", options=["None","Growth curve (btc)", "Growth curve (eth)"], defval="None")
 
 weeks = input(20, title = 'Length')
+loga  = input(false, title = 'Log Fraction')
 MA = sma(close, weeks)
 
-bubble = (choice == "Growth curve (btc)") ? normalize(((close)/MA)*(log(btcLowDev+math.e)),0,1)  :
-         (choice == "Growth curve (eth)") ? normalize((close/MA)*log(ethLowDev+math.e),0,1)      :
-         normalize(close/MA,0,1)
+bubble = (choice == "Growth curve (btc)" and loga) ? normalize(log((close)/MA)*(log(btcLowDev+math.e)),0,1)         :
+         (choice == "Growth curve (eth)" and loga) ? normalize(log(close/MA)*log(ethLowDev+math.e),0,1)             :
+         (choice == "None" and loga) ? normalize(log(close/MA),0,1)                                                 :
+         (choice == "Growth curve (btc)" and (loga == false)) ? normalize(((close)/MA)*(log(btcLowDev+math.e)),0,1) :
+         (choice == "Growth curve (eth)" and (loga == false)) ? normalize((close/MA)*log(ethLowDev+math.e),0,1)     :
+         normalize((close/MA),0,1)
+
 
 
 red = int(normalize(bubble, 0,255))
