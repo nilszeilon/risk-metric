@@ -5,8 +5,12 @@
 Risk model for crypto currencies. Takes the fraction of the weekly close and a slower moving average, nomarlizes this fraction from the beginning of time. Compensates the fraction with a logarithmic growth band to accomodate for lesser procentage moves as the marketcap goes higher. Lets the user choose the moving average and supporting logarithmic band from bitcoin or ethereum. 
 
 ##### Examples
+* Risk metric for bitcoin
 ![Risk metric for Bitcoin](./bitcoin.png)
+* Risk metric for ethereum
 ![Risk metric for Ethereum](./ethereum.png)
+* Risk metric eth/btc
+![Risk metric for ethbtc](./ethbtc.png)
 
 ##### Thanks 
 
